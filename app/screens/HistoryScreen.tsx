@@ -10,7 +10,7 @@ interface LocationData {
   id: string;
   latitude: number;
   longitude: number;
-  timestamp: string;
+  createdAt: any;
 }
 
 export default function HistoryScreen() {
@@ -21,10 +21,16 @@ export default function HistoryScreen() {
     const fetchLocations = async () => {
       try {
         const snapshot = await getDocs(collection(db, 'checkins'));
-        const fetchedLocations: LocationData[] = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        })) as LocationData[];
+        const fetchedLocations: LocationData[] = snapshot.docs.map(doc => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            latitude: data.latitude,
+            longitude: data.longitude,
+            createdAt: data.createdAt?.toDate(),
+          };
+        });
+        
         setLocations(fetchedLocations);
       } catch (error) {
         Alert.alert('Erro:', 'Erro ao buscar localizações');
@@ -48,7 +54,7 @@ export default function HistoryScreen() {
       </View>
     );
   }
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>🗺️ Histórico de Localizações</Text>
@@ -57,8 +63,14 @@ export default function HistoryScreen() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.item} onPress={() => openMap(item.latitude, item.longitude)}>
-            <Text style={styles.text}>📍 {item.latitude.toFixed(4)}, {item.longitude.toFixed(4)}</Text>
-            <Text style={styles.timestamp}>🕒 {new Date(item.timestamp).toLocaleString()}</Text>
+            <Text style={styles.text}>📍 {item.latitude}, {item.longitude}</Text>
+            <Text style={styles.timestamp}>🕒 {item.createdAt?.toLocaleString('pt-BR', {
+              day: '2-digit',
+              month: 'long',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+            })}</Text>
           </TouchableOpacity>
         )}
         ListEmptyComponent={<Text style={styles.text}>Nenhum check-in encontrado.</Text>}

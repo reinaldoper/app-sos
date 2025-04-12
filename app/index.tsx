@@ -40,6 +40,12 @@ export default function Home() {
             <Text style={styles.buttonText}>🗺️ Histórico</Text>
           </TouchableOpacity>
         </Link>
+        <Link href="/screens/RealTimeLocationScreen" asChild>
+          <TouchableOpacity style={styles.buttonBlue}>
+            <Text style={styles.buttonText}>📡 Localização em tempo real</Text>
+          </TouchableOpacity>
+        </Link>
+
 
       </View>
     </View>

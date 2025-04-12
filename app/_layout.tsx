@@ -13,6 +13,7 @@ export default function RootLayoutNav() {
         <Stack.Screen name="screens/ContactsScreen" options={{ headerShown: true }} />
         <Stack.Screen name="screens/TipsScreen" options={{ headerShown: true }} />
         <Stack.Screen name="screens/HistoryScreen" options={{ headerShown: true }} />
+        <Stack.Screen name="screens/RealTimeLocationScreen" options={{ headerShown: true }} />
       </Stack>
   );
 }
