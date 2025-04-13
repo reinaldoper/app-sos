@@ -55,30 +55,37 @@ Um aplicativo mobile desenvolvido com **React Native**, **Expo Router** e **Fire
 
 2. Crie um projeto e adicione um app Web
 
-3. Copie as configurações e coloque no arquivo constants/firebaseConfig.ts:
+3. Crie um arquivo .env na raiz e adiciona as credenciais do firebase
+
+4. Copie as configurações e coloque no arquivo constants/firebaseConfig.ts:
 
 
 ```bash
+import Constants from 'expo-constants';
+
 import { initializeApp, getApp } from "firebase/app";
 import { initializeAuth, getAuth } from 'firebase/auth';
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 import * as firebaseAuth from 'firebase/auth';
 const reactNativePersistence = (firebaseAuth as any).getReactNativePersistence;
 
-export const FIREBASE_APP = initializeApp({
-  apiKey: "SUA_API_KEY",
-  authDomain: "SEU_AUTH_DOMAIN",
-  projectId: "SEU_PROJECT_ID",
-  storageBucket: "SEU_BUCKET",
-  messagingSenderId: "SEU_SENDER_ID",
-  appId: "SEU_APP_ID",
-  measurementId: "SEU_MEASUREMENT_ID"
-});
+const firebaseConfig = {
+  apiKey: Constants.expoConfig?.extra?.FIREBASE_API_KEY,
+  authDomain: Constants.expoConfig?.extra?.FIREBASE_AUTH_DOMAIN,
+  projectId: Constants.expoConfig?.extra?.FIREBASE_PROJECT_ID,
+  storageBucket: Constants.expoConfig?.extra?.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: Constants.expoConfig?.extra?.FIREBASE_MESSAGING_SENDER_ID,
+  appId: Constants.expoConfig?.extra?.FIREBASE_APP_ID,
+  measurementId: Constants.expoConfig?.extra?.MEASUREMENT_ID
+};
 
 const FIREBASE_APP = initializeApp(firebaseConfig);
 const auth = initializeAuth(FIREBASE_APP, {
   persistence: reactNativePersistence(ReactNativeAsyncStorage)
 });
+
+
+export { FIREBASE_APP, auth };
 
 ```
 
