@@ -17,8 +17,8 @@ import {
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
-import { FIREBASE_APP } from "@/constants/firebaseConfig";
-import { mapsLink } from "@/constants/mapsLink";
+import { FIREBASE_APP } from "../../constants/firebaseConfig";
+import { mapsLink } from "../../constants/mapsLink";
 import {
   selectedContacts,
   backGroundButton,
@@ -29,7 +29,7 @@ import {
   contactSubText,
   description,
   contactText
-} from "@/constants/Colors";
+} from "../../constants/Colors";
 
 const db = getFirestore(FIREBASE_APP);
 

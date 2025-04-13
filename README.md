@@ -59,7 +59,11 @@ Um aplicativo mobile desenvolvido com **React Native**, **Expo Router** e **Fire
 
 
 ```bash
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApp } from "firebase/app";
+import { initializeAuth, getAuth } from 'firebase/auth';
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+import * as firebaseAuth from 'firebase/auth';
+const reactNativePersistence = (firebaseAuth as any).getReactNativePersistence;
 
 export const FIREBASE_APP = initializeApp({
   apiKey: "SUA_API_KEY",
@@ -70,6 +74,12 @@ export const FIREBASE_APP = initializeApp({
   appId: "SEU_APP_ID",
   measurementId: "SEU_MEASUREMENT_ID"
 });
+
+const FIREBASE_APP = initializeApp(firebaseConfig);
+const auth = initializeAuth(FIREBASE_APP, {
+  persistence: reactNativePersistence(ReactNativeAsyncStorage)
+});
+
 ```
 
 ## ⚙️ Instalação e Execução
@@ -98,13 +108,12 @@ npx expo start
 
 ## 🛠️ Funcionalidades Futuras
 
-1. Sincronização direta com os contatos do dispositivo
 
-2. Login com Firebase Auth
+1. Login com Firebase Auth
 
-3. Envio de alertas silenciosos
+2. Envio de alertas silenciosos
 
-4. Integração com GPS em tempo real
+
 
 ## 🤝 Contribuições
 

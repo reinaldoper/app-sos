@@ -4,9 +4,9 @@ import * as Animatable from 'react-native-animatable';
 import * as Haptics from 'expo-haptics';
 import { Audio } from 'expo-av';
 import * as Location from 'expo-location';
-import { tintColorLight } from '@/constants/Colors';
-import { mapsLink } from '@/constants/mapsLink';
-import styles from '@/constants/styles';
+import { tintColorLight } from '../../constants/Colors';
+import { mapsLink } from '../../constants/mapsLink';
+import styles from '../../constants/styles';
 
 export default function SOSScreen() {
   const [location, setLocation] = useState({

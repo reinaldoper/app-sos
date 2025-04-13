@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator, Alert, Linking } from 'react-native';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { FIREBASE_APP } from '@/constants/firebaseConfig';
-import { mapsLink } from '@/constants/mapsLink';
+import { FIREBASE_APP } from '../../constants/firebaseConfig';
+import { mapsLink } from '../../constants/mapsLink';
 
 const db = getFirestore(FIREBASE_APP);
 

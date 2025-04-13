@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { safetyTips } from '@/constants/safetyTips';
+import { safetyTips } from '../../constants/safetyTips';
 
 
 export default function TipsScreen() {

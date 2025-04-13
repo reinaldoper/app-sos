@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { StyleSheet, View, Text, Pressable, TextInput } from "react-native";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "expo-router";
-import { auth } from "../constants/firebaseConfig";
-import { primary, backGroundContainer, backGroundTitle, secondary } from "../constants/Colors";
+import { auth } from "../../constants/firebaseConfig";
+import { primary, backGroundContainer, backGroundTitle, secondary, description } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
-export default function CreateUser() {
+export default function LoginUser() {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +14,7 @@ export default function CreateUser() {
   const router = useRouter();
 
   const handleRoute = () => {
-    router.push('/screens/Login')
+    router.push('/')
   }
   
   return (
@@ -23,7 +23,7 @@ export default function CreateUser() {
         <Ionicons name="arrow-back" size={24} color={secondary} />
       </Pressable>
       <View style={styles.container}>
-        <Text style={styles.title}>👨🏻‍💼 Create User</Text>
+        <Text style={styles.title}>🔓 Login</Text>
         <TextInput
           placeholder="Email"
           style={styles.item}
@@ -48,8 +48,8 @@ export default function CreateUser() {
                 setError("Por favor, preencha todos os campos.");
                 return;
               }
-              await createUserWithEmailAndPassword(auth, email, password);
-              router.push('/screens/Login')
+              await signInWithEmailAndPassword(auth, email, password);
+              router.push('/index_routes')
             } catch (error: any) {
               setError(error.message);
             } finally {
@@ -59,16 +59,10 @@ export default function CreateUser() {
         >
           <Ionicons name="add" size={24} color={secondary} />
         </Pressable>
-        
       </View>
     </>
   );
 }
-
-
-
-
-
 
 
 const styles = StyleSheet.create({
@@ -106,7 +100,7 @@ const styles = StyleSheet.create({
   },
   timestamp: {
     fontSize: 12,
-    color: '#ccc',
+    color: description,
     marginTop: 4,
   },
   centered: {
@@ -115,9 +109,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: backGroundContainer,
   },
-  pressable: {
-    justifyContent: 'center',
-    alignItems: 'center',
-
-  }
 });

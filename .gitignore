@@ -2,7 +2,7 @@
 
 # dependencies
 node_modules/
-constants/firebaseConfig.ts
+constants/firebaseConfig.tsx
 
 # Expo
 .expo/

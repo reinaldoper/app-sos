@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Button, Linking } from 'react-native';
 import * as Location from 'expo-location';
-import { mapsLink } from '@/constants/mapsLink';
+import { mapsLink } from '../../constants/mapsLink';
 
 export default function RealTimeLocationScreen() {
   const [location, setLocation] = useState({
