@@ -1,17 +1,12 @@
-import 'dotenv/config';
-
 export default {
   expo: {
     name: "sos",
     slug: "sos",
     version: "1.0.0",
-    sdkVersion: "50.0.0", 
-    android: {
-      package: "com.reinaldodev.sos" 
-    },
+    sdkVersion: "50.0.0",
     extra: {
       eas: {
-        projectId: "54b5181b-4b86-4dea-9144-0c42ba40c75e", 
+        projectId: "54b5181b-4b86-4dea-9144-0c42ba40c75e"
       },
       FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
       FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
@@ -21,5 +16,11 @@ export default {
       FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
       MEASUREMENT_ID: process.env.MEASUREMENT_ID
     },
+    ios: {
+      bundleIdentifier: "com.reinaldodev.sos",
+    },
+    android: {
+      package: "com.reinaldodev.sos",
+    }
   },
 };
