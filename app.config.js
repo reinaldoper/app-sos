@@ -3,7 +3,7 @@ export default {
     name: "sos",
     slug: "sos",
     version: "1.0.0",
-    sdkVersion: "50.0.0",
+    sdkVersion: "52.0.0",
     extra: {
       eas: {
         projectId: "54b5181b-4b86-4dea-9144-0c42ba40c75e"

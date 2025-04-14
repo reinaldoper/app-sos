@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator, 
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { FIREBASE_APP } from '../../constants/firebaseConfig';
 import { mapsLink } from '../../constants/mapsLink';
+import Logout from '../Logout';
 
 const db = getFirestore(FIREBASE_APP);
 
@@ -56,6 +57,7 @@ export default function HistoryScreen() {
   }
   
   return (
+    <>
     <View style={styles.container}>
       <Text style={styles.title}>🗺️ Histórico de Localizações</Text>
       <FlatList
@@ -76,6 +78,8 @@ export default function HistoryScreen() {
         ListEmptyComponent={<Text style={styles.text}>Nenhum check-in encontrado.</Text>}
       />
     </View>
+    <Logout />
+    </>
   );
 }
 

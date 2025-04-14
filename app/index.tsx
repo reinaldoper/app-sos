@@ -5,6 +5,9 @@ import { useRouter } from "expo-router";
 import { auth } from "../constants/firebaseConfig";
 import { primary, backGroundContainer, backGroundTitle, secondary } from "../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
+
+
+
 export default function CreateUser() {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
@@ -43,11 +46,11 @@ export default function CreateUser() {
           style={styles.item}
           onPress={async () => {
             try {
-              setLoading(true);
               if (!email || !password) {
                 setError("Por favor, preencha todos os campos.");
                 return;
               }
+              setLoading(true);
               await createUserWithEmailAndPassword(auth, email, password);
               router.push('/screens/Login')
             } catch (error: any) {

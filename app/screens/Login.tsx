@@ -43,11 +43,11 @@ export default function LoginUser() {
           style={styles.item}
           onPress={async () => {
             try {
-              setLoading(true);
               if (!email || !password) {
                 setError("Por favor, preencha todos os campos.");
                 return;
               }
+              setLoading(true);
               await signInWithEmailAndPassword(auth, email, password);
               router.push('/index_routes')
             } catch (error: any) {

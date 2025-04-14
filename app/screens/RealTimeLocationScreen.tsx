@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Button, Linking } from 'react-native';
 import * as Location from 'expo-location';
 import { mapsLink } from '../../constants/mapsLink';
+import Logout from '../Logout';
 
 export default function RealTimeLocationScreen() {
   const [location, setLocation] = useState({
@@ -42,20 +43,21 @@ export default function RealTimeLocationScreen() {
   };
 
   return (
+    <>
     <View style={styles.container}>
       <Text style={styles.title}>📍 Localização em Tempo Real</Text>
       {errorMsg ? (
         <Text style={styles.error}>{errorMsg}</Text>
       ) : location ? (
         <>
-          <Text style={styles.text}>Latitude: {location.latitude}</Text>
-          <Text style={styles.text}>Longitude: {location.longitude}</Text>
           <Button title="Ver no Google Maps" onPress={openInMaps} />
         </>
       ) : (
         <Text style={styles.text}>Obtendo localização...</Text>
       )}
     </View>
+    <Logout />
+    </>
   );
 }
 

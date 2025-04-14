@@ -28,8 +28,9 @@ import {
   contactItens,
   contactSubText,
   description,
-  contactText
+  contactText,
 } from "../../constants/Colors";
+import Logout from "../Logout";
 
 const db = getFirestore(FIREBASE_APP);
 
@@ -130,37 +131,40 @@ export default function CheckInScreen() {
   );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Check-in de Segurança</Text>
+    <>
+      <View style={styles.container}>
+        <Text style={styles.title}>Check-in de Segurança</Text>
 
-      <FlatList
-        data={contacts}
-        keyExtractor={(item) => item.id}
-        renderItem={renderContact}
-        style={{ marginBottom: 20 }}
-      />
+        <FlatList
+          data={contacts}
+          keyExtractor={(item) => item.id}
+          renderItem={renderContact}
+          style={{ marginBottom: 20 }}
+        />
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={handleCheckIn}
-        disabled={loading}
-      >
-        <Text style={styles.buttonText}>
-          {loading ? "Enviando..." : "Fazer Check-in"}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleCheckIn}
+          disabled={loading}
+        >
+          <Text style={styles.buttonText}>
+            {loading ? "Enviando..." : "Fazer Check-in"}
+          </Text>
+          {loading && (
+            <ActivityIndicator
+              size="small"
+              color="#fff"
+              style={{ marginTop: 10 }}
+            />
+          )}
+        </TouchableOpacity>
+
+        <Text style={styles.description}>
+          Selecione um contato para enviar sua localização via WhatsApp e Email.
         </Text>
-        {loading && (
-          <ActivityIndicator
-            size="small"
-            color="#fff"
-            style={{ marginTop: 10 }}
-          />
-        )}
-      </TouchableOpacity>
-
-      <Text style={styles.description}>
-        Selecione um contato para enviar sua localização via WhatsApp e Email.
-      </Text>
-    </View>
+      </View>
+      <Logout />
+    </>
   );
 }
 

@@ -7,6 +7,7 @@ import * as Location from 'expo-location';
 import { tintColorLight } from '../../constants/Colors';
 import { mapsLink } from '../../constants/mapsLink';
 import styles from '../../constants/styles';
+import Logout from '../Logout';
 
 export default function SOSScreen() {
   const [location, setLocation] = useState({
@@ -51,6 +52,7 @@ export default function SOSScreen() {
   };
 
   return (
+    <>
     <View style={styles.container}>
       <Text style={styles.title}>Emergência</Text>
 
@@ -71,6 +73,8 @@ export default function SOSScreen() {
 
       <Text style={styles.footer}>Toque para enviar sua localização</Text>
     </View>
+    <Logout />
+    </>
   );
 }
 
