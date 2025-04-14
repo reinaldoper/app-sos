@@ -103,6 +103,10 @@ npm install
 
 
 npx expo start
+
+#ou
+
+npm run android
 ```
 
 

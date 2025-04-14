@@ -9,7 +9,7 @@ export default function AuthListener() {
     const auth = getAuth(FIREBASE_APP);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
-        router.replace("/screens/Login");
+        router.replace("/");
       }
     });
 
