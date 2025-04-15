@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { safetyTips } from '../../constants/safetyTips';
-import Logout from '../Logout';
+
 
 
 export default function TipsScreen() {
@@ -18,7 +18,6 @@ export default function TipsScreen() {
         ))}
       </ScrollView>
     </View>
-    <Logout />
     </>
   );
 }

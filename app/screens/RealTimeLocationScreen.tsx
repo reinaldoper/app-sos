@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Button, Linking } from 'react-native';
 import * as Location from 'expo-location';
 import { mapsLink } from '../../constants/mapsLink';
-import Logout from '../Logout';
+
 
 export default function RealTimeLocationScreen() {
   const [location, setLocation] = useState({
@@ -56,7 +56,6 @@ export default function RealTimeLocationScreen() {
         <Text style={styles.text}>Obtendo localização...</Text>
       )}
     </View>
-    <Logout />
     </>
   );
 }

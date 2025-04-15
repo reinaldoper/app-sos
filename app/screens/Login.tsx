@@ -3,9 +3,9 @@ import { StyleSheet, View, Text, Pressable, TextInput } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "expo-router";
 import { auth } from "../../constants/firebaseConfig";
-import { primary, backGroundContainer, backGroundTitle, secondary, description } from "@/constants/Colors";
+import { primary, backGroundContainer, backGroundTitle, secondary, description } from "../../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
-export default function LoginUser() {
+export default function Login() {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,7 +49,7 @@ export default function LoginUser() {
               }
               setLoading(true);
               await signInWithEmailAndPassword(auth, email, password);
-              router.push('/index_routes')
+              router.push('/Home')
             } catch (error: any) {
               setError(error.message);
             } finally {

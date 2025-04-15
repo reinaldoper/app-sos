@@ -30,7 +30,6 @@ import {
   description,
   contactText,
 } from "../../constants/Colors";
-import Logout from "../Logout";
 
 const db = getFirestore(FIREBASE_APP);
 
@@ -163,7 +162,6 @@ export default function CheckInScreen() {
           Selecione um contato para enviar sua localização via WhatsApp e Email.
         </Text>
       </View>
-      <Logout />
     </>
   );
 }

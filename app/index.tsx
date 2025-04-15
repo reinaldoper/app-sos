@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Pressable, TextInput } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "expo-router";
 import { auth } from "../constants/firebaseConfig";
-import { primary, backGroundContainer, backGroundTitle, secondary } from "../constants/Colors";
+import { backGroundContainer, backGroundTitle, secondary } from "../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 
 
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   backStyle: {
-    backgroundColor: primary,
+    backgroundColor: secondary,
     padding: 10,
     borderRadius: 5,
     width: 40,

@@ -10,7 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import * as Contacts from 'expo-contacts';
-import Logout from '../Logout';
+
 
 export default function ContactsScreen() {
   const [contacts, setContacts] = useState<any[]>([]);
@@ -61,7 +61,6 @@ export default function ContactsScreen() {
         />
       )}
     </View>
-    <Logout />
     </>
   );
 }
