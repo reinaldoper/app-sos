@@ -117,9 +117,6 @@ npm run android
 
 1. Envio de alertas silenciosos
 
-2. Logout com firebase
-
-
 
 ## 🤝 Contribuições
 

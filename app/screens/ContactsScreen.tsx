@@ -10,8 +10,22 @@ import {
   Alert,
 } from 'react-native';
 import * as Contacts from 'expo-contacts';
+import LogoutButton from "../../components/LogoutButton";
 
 
+/**
+ * Tela de Contatos, onde o usu rio v  uma lista de todos os contatos
+ * do seu dispositivo.
+ *
+ * O componente solicita permiss o para acessar os contatos do usu rio,
+ * e se a permiss o for concedida, renderiza uma lista de contatos com o
+ * nome e n mero de telefone de cada contato.
+ *
+ * Se o usu rio n o tiver permiss o para acessar os contatos,
+ * exibe um alerta informando que n o foi poss vel acessar os contatos.
+ *
+ * Al m disso, o componente tamb m renderiza um bot o para fazer logout.
+ */
 export default function ContactsScreen() {
   const [contacts, setContacts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -61,6 +75,7 @@ export default function ContactsScreen() {
         />
       )}
     </View>
+    <LogoutButton />
     </>
   );
 }

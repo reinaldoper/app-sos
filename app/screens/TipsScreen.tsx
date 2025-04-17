@@ -2,9 +2,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { safetyTips } from '../../constants/safetyTips';
+import LogoutButton from "../../components/LogoutButton";
 
 
 
+/**
+ * Tela de Dicas de Seguran a, que renderiza uma lista de dicas
+ * de seguran a para o usu rio.
+ *
+ * A lista de dicas  gerenciada pelo array `safetyTips` no arquivo
+ * `constants/safetyTips`.
+ *
+ * A tela tamb m renderiza um bot o de Logout na parte inferior.
+ */
 export default function TipsScreen() {
   return (
     <>
@@ -18,6 +28,7 @@ export default function TipsScreen() {
         ))}
       </ScrollView>
     </View>
+    <LogoutButton />
     </>
   );
 }

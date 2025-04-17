@@ -2,9 +2,22 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
+import LogoutButton from "../components/LogoutButton";
 
+/**
+ * Tela de in cio do aplicativo, onde o usu rio pode acessar as telas de:
+ * - SOS
+ * - Check-in
+ * - Contatos
+ * - Dicas de Seguran a
+ * - Hist rico
+ * - Localiza o em tempo real
+ *
+ * A tela tamb m tem um bot o para fazer logout.
+ */
 export default function Home() {
   return (
+    <>
     <View style={styles.container}>
       <Text style={styles.title}>🛡️ Aplicativo SOS</Text>
       <Text style={styles.subtitle}>
@@ -49,6 +62,8 @@ export default function Home() {
 
       </View>
     </View>
+    <LogoutButton />
+    </>
   );
 }
 

@@ -17,6 +17,7 @@ export default function RootLayoutNav() {
         <Stack.Screen name="screens/HistoryScreen" options={{ headerShown: true }} />
         <Stack.Screen name="screens/RealTimeLocationScreen" options={{ headerShown: true }} />
         <Stack.Screen name="screens/Login" options={{ headerShown: false }} />
+        <Stack.Screen name="Logout" options={{ headerShown: false }} />
       </Stack>
     
   );

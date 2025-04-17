@@ -2,8 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Button, Linking } from 'react-native';
 import * as Location from 'expo-location';
 import { mapsLink } from '../../constants/mapsLink';
+import LogoutButton from "../../components/LogoutButton";
 
 
+/**
+ * Tela de Localiza o em Tempo Real, onde o usu rio v  sua localiza o atual
+ * em tempo real.
+ *
+ * O componente solicita permiss o para acessar a localiza o do usu rio,
+ * e se a permiss o for concedida, renderiza um bot o para abrir a localiza o
+ * no Google Maps.
+ *
+ * Se o usu rio n o tiver permiss o para acessar a localiza o,
+ * exibe um alerta informando que n o foi poss vel acessar a localiza o.
+ *
+ * Al m disso, o componente tamb m renderiza um bot o para fazer logout.
+ */
 export default function RealTimeLocationScreen() {
   const [location, setLocation] = useState({
     latitude: 0,
@@ -56,6 +70,7 @@ export default function RealTimeLocationScreen() {
         <Text style={styles.text}>Obtendo localização...</Text>
       )}
     </View>
+    <LogoutButton />
     </>
   );
 }

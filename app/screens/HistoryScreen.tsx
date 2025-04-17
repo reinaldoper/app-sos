@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator, 
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { FIREBASE_APP } from '../../constants/firebaseConfig';
 import { mapsLink } from '../../constants/mapsLink';
+import LogoutButton from "../../components/LogoutButton";
 
 
 const db = getFirestore(FIREBASE_APP);
@@ -14,6 +15,18 @@ interface LocationData {
   createdAt: any;
 }
 
+/**
+ * Tela de Hist rico de Localiza es, onde o usu rio v  uma lista de todas as localiza es
+ * que ele enviou para os contatos.
+ *
+ * O componente fetcha a lista de localiza es do usu rio no useEffect,
+ * e renderiza uma lista de localiza es com o endere o e data/hora de cada localiza o.
+ *
+ * Se o usu rio n o tiver permiss o para acessar a localiza o,
+ * exibe um alerta informando que n o foi poss vel acessar a localiza o.
+ *
+ * Al m disso, o componente tamb m renderiza um bot o para fazer logout.
+ */
 export default function HistoryScreen() {
   const [locations, setLocations] = useState<LocationData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -75,9 +88,9 @@ export default function HistoryScreen() {
             })}</Text>
           </TouchableOpacity>
         )}
-        ListEmptyComponent={<Text style={styles.text}>Nenhum check-in encontrado.</Text>}
-      />
+        ListEmptyComponent={<Text style={styles.text}>Nenhum check-in encontrado.</Text>}/>
     </View>
+    <LogoutButton />
     </>
   );
 }

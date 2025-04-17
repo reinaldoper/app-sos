@@ -30,9 +30,29 @@ import {
   description,
   contactText,
 } from "../../constants/Colors";
+import LogoutButton from "../../components/LogoutButton";
 
 const db = getFirestore(FIREBASE_APP);
 
+/**
+ * Tela de Check-in de Segurança, onde o usu rio seleciona um contato
+ * e envia sua localiza o atual via WhatsApp e Email.
+ *
+ * O componente fetcha a lista de contatos do usu rio no useEffect,
+ * e renderiza uma lista de contatos com um bot o para selecionar
+ * um contato e fazer o check-in.
+ *
+ * Ao pressionar o bot o, o componente solicita permiss o para
+ * acessar a localiza o do usu rio, e se a permiss o for concedida,
+ * envia a localiza o atual via WhatsApp e Email para o contato
+ * selecionado.
+ *
+ * Se o usu rio n o tiver permiss o para acessar a localiza o,
+ * exibe um alerta informando que n o foi poss vel acessar a localiza o.
+ *
+ * Al m disso, o componente tamb m renderiza um texto explicando
+ * o que o check-in de seguran a  .
+ */
 export default function CheckInScreen() {
   const [loading, setLoading] = useState(false);
   const [contacts, setContacts] = useState<any[]>([]);
@@ -162,6 +182,7 @@ export default function CheckInScreen() {
           Selecione um contato para enviar sua localização via WhatsApp e Email.
         </Text>
       </View>
+      <LogoutButton />
     </>
   );
 }

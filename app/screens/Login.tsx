@@ -5,21 +5,47 @@ import { useRouter } from "expo-router";
 import { auth } from "../../constants/firebaseConfig";
 import { primary, backGroundContainer, backGroundTitle, secondary, description } from "../../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
+
+
+
+/**
+ * This component renders a login screen with input fields for email and password.
+ * The user can input their email and password and submit the form to login.
+ * If the login is successful, the user is redirected to the Home screen.
+ * If the login fails, an error message is displayed.
+ */
 export default function Login() {
-  const [error, setError] = useState<string | null>(null);
+  const [loginError, setLoginError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
-  const handleRoute = () => {
-    router.push('/')
+  const navigateHome = () => {
+    router.push('/');
   }
-  
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      setLoginError("Por favor, preencha todos os campos.");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push('/Home');
+    } catch (error: any) {
+      setLoginError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <>
-      <Pressable style={styles.backStyle} onPress={handleRoute}>
+      <Pressable style={styles.backStyle} onPress={navigateHome}>
         <Ionicons name="arrow-back" size={24} color={secondary} />
       </Pressable>
       <View style={styles.container}>
@@ -37,26 +63,9 @@ export default function Login() {
           value={password}
           onChangeText={setPassword}
         />
-        {error && <Text style={{ color: "red" }}>{error}</Text>}
-        {loading && <Text style={{ color: "blue" }}>Loading...</Text>}
-        <Pressable
-          style={styles.item}
-          onPress={async () => {
-            try {
-              if (!email || !password) {
-                setError("Por favor, preencha todos os campos.");
-                return;
-              }
-              setLoading(true);
-              await signInWithEmailAndPassword(auth, email, password);
-              router.push('/Home')
-            } catch (error: any) {
-              setError(error.message);
-            } finally {
-              setLoading(false);
-            }
-          }}
-        >
+        {loginError && <Text style={{ color: "red" }}>{loginError}</Text>}
+        {isLoading && <Text style={{ color: "blue" }}>Loading...</Text>}
+        <Pressable style={styles.item} onPress={handleLogin}>
           <Ionicons name="add" size={24} color={secondary} />
         </Pressable>
       </View>
