@@ -14,13 +14,13 @@
     "production": {
       "autoIncrement": true,
       "env": {
-        "FIREBASE_API_KEY": "env",
-        "FIREBASE_AUTH_DOMAIN": "env",
-        "FIREBASE_PROJECT_ID": "env",
-        "FIREBASE_STORAGE_BUCKET": "env",
-        "FIREBASE_MESSAGING_SENDER_ID": "env",
-        "FIREBASE_APP_ID": "env",
-        "MEASUREMENT_ID": "env"
+        "FIREBASE_API_KEY": "AIzaSyAd2myxCvQtsUHI5zLA_R-tM5NtTw0yJKc",
+        "FIREBASE_AUTH_DOMAIN": "viajem-3e2f5.firebaseapp.com",
+        "FIREBASE_PROJECT_ID": "viajem-3e2f5",
+        "FIREBASE_STORAGE_BUCKET": "viajem-3e2f5.firebasestorage.app",
+        "FIREBASE_MESSAGING_SENDER_ID": "468468808839",
+        "FIREBASE_APP_ID": "1:468468808839:web:212d732b01eed440654c22",
+        "MEASUREMENT_ID": "G-7HQF92TTVL"
       }
     }
   },

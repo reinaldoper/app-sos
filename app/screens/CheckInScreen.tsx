@@ -74,7 +74,7 @@ export default function CheckInScreen() {
       });
 
       const validContacts = data.filter(
-        (c) => c.phoneNumbers && c.phoneNumbers.length > 0
+        (c) => c.phoneNumbers && c.phoneNumbers.length > 0 || c.emails
       );
       setContacts(validContacts);
     };

@@ -1,10 +1,13 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
-
-import { MonoText } from '../StyledText';
+import LogoutButton from '../LogoutButton';
 
 it(`renders correctly`, () => {
-  const tree = renderer.create(<MonoText>Snapshot test!</MonoText>).toJSON();
+  const tree = renderer.create(<LogoutButton>Logout</LogoutButton>).toJSON();
 
   expect(tree).toMatchSnapshot();
+  expect(tree).toHaveProperty('type', 'View');
+  expect(tree).toHaveProperty('props.onClick');
+  expect(tree.props.onClick).toBeInstanceOf(Function);
 });
+

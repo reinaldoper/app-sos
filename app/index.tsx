@@ -8,6 +8,21 @@ import { Ionicons } from "@expo/vector-icons";
 
 
 
+/**
+ * This component renders a screen to create a new user.
+ * 
+ * It displays input fields for email and password, and a button to submit the form.
+ * 
+ * When the form is submitted, the `createUserWithEmailAndPassword` function is called,
+ * which creates a new user in the Firebase authentication system.
+ * 
+ * If the user creation is successful, the user is redirected to the login screen.
+ * 
+ * If the user creation fails, an error message is displayed.
+ * 
+ * Additionally, there's a back button that allows the user to navigate to the previous
+ * screen by executing the `handleRoute` function.
+ */
 export default function CreateUser() {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState("");

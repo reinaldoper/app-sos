@@ -33,7 +33,7 @@ export default function Logout() {
     }
   };
   const handleRoute = () => {
-    navigation.goBack;
+    navigation.goBack();
   }
 
   return (

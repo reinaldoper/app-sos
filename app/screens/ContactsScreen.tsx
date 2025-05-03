@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   Alert,
+  Image
 } from 'react-native';
 import * as Contacts from 'expo-contacts';
 import LogoutButton from "../../components/LogoutButton";
@@ -40,7 +41,7 @@ export default function ContactsScreen() {
       }
 
       const { data } = await Contacts.getContactsAsync({
-        fields: [Contacts.Fields.PhoneNumbers],
+        fields: [Contacts.Fields.PhoneNumbers, Contacts.Fields.Name, Contacts.Fields.Image],
       });
 
       setContacts(data);
@@ -52,7 +53,8 @@ export default function ContactsScreen() {
 
   const renderItem = ({ item }: { item: any }) => (
     <TouchableOpacity style={styles.contactCard}>
-      <Text style={styles.contactName}>{item.name}</Text>
+      <Text style={styles.contactName}>{item.name || 'Sem nome'}</Text>
+      <Image source={{ uri: item.image?.uri }} style={styles.contactImage} />
       {item.phoneNumbers?.[0] && (
         <Text style={styles.contactPhone}>{item.phoneNumbers[0].number}</Text>
       )}
@@ -111,4 +113,11 @@ const styles = StyleSheet.create({
     color: '#aaa',
     marginTop: 4,
   },
+  contactImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 10,
+    marginBottom: 10,
+  }
 });
