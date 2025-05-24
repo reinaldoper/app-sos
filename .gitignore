@@ -38,5 +38,3 @@ eas.json
 *.tsbuildinfo
 
 
-/android
-/ios
