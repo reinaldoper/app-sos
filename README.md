@@ -102,6 +102,11 @@ npx expo start
 #ou
 
 npm run android
+
+
+#ou
+
+npm run apk
 ```
 
 

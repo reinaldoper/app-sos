@@ -1,5 +1,4 @@
 import Constants from 'expo-constants';
-
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
@@ -14,6 +13,7 @@ const firebaseConfig = {
 };
 
 const FIREBASE_APP = initializeApp(firebaseConfig);
+
 const auth = getAuth(FIREBASE_APP);
 
 export { FIREBASE_APP, auth };
