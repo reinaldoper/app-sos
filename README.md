@@ -32,6 +32,12 @@ Um aplicativo mobile desenvolvido com **React Native**, **Expo Router** e **Fire
 
 ---
 
+## Telas:
+
+![login](./assets/images/expo_sos.png)
+![login](./assets/images/tela_sos.png)
+![login](./assets/images/tips.png)
+
 ## 📂 Estrutura de Pastas
 
 ```bash
