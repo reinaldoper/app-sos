@@ -28,6 +28,7 @@ export const  lightGreen = '#67DB85'
 export const  lightBlue = '#67DBAD'
 export const  dark = '#15212a'
 export const  grayDark = '#3b3737'
+export const  redLight = '#e60000'
 
 export const ColorsUse = {
   light: {

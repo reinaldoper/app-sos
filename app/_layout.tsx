@@ -1,6 +1,7 @@
 
 import { Stack } from 'expo-router';
 import 'react-native-reanimated';
+import { redLight, backGroundButton, selectedContacts, backGroundButtonText } from '@/constants/Colors';
 
 
   /**
@@ -28,12 +29,48 @@ export default function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="Home" options={{ headerShown: false }} />
-        <Stack.Screen name='screens/SOSScreen' options={{ headerShown: true }} />
-        <Stack.Screen name= "screens/CheckInScreen" options={{ headerShown: true }} />
-        <Stack.Screen name="screens/ContactsScreen" options={{ headerShown: true }} />
-        <Stack.Screen name="screens/TipsScreen" options={{ headerShown: true }} />
-        <Stack.Screen name="screens/HistoryScreen" options={{ headerShown: true }} />
-        <Stack.Screen name="screens/RealTimeLocationScreen" options={{ headerShown: true }} />
+        <Stack.Screen name='screens/SOSScreen' options={
+          { headerShown: true,
+            title: 'SOS',
+            headerStyle: { backgroundColor: redLight },
+            headerTintColor: backGroundButtonText,
+            headerTitleStyle: { fontWeight: 'bold', fontSize: 20 }
+           }} />
+        <Stack.Screen name= "screens/CheckInScreen" options={
+          { headerShown: true,
+            title: 'Check-In',
+            headerStyle: { backgroundColor: backGroundButton },
+            headerTintColor: backGroundButtonText,
+            headerTitleStyle: { fontWeight: 'bold', fontSize: 20 }
+           }} />
+        <Stack.Screen name="screens/ContactsScreen" options={
+          { headerShown: true,
+            title: 'Contacts',
+            headerStyle: { backgroundColor: selectedContacts },
+            headerTintColor: backGroundButtonText,
+            headerTitleStyle: { fontWeight: 'bold', fontSize: 20 }
+           }} />
+        <Stack.Screen name="screens/TipsScreen" options={
+          { headerShown: true,
+            title: 'Tips',
+            headerStyle: { backgroundColor: redLight },
+            headerTintColor: backGroundButtonText,
+            headerTitleStyle: { fontWeight: 'bold', fontSize: 20 }
+           }} />
+        <Stack.Screen name="screens/HistoryScreen" options={
+          { headerShown: true,
+            title: 'History',
+            headerStyle: { backgroundColor: backGroundButton },
+            headerTintColor: backGroundButtonText,
+            headerTitleStyle: { fontWeight: 'bold', fontSize: 20 }
+           }} />
+        <Stack.Screen name="screens/RealTimeLocationScreen" options={
+          { headerShown: true,
+            title: 'Real-Time Location',
+            headerStyle: { backgroundColor: selectedContacts },
+            headerTintColor: backGroundButtonText,
+            headerTitleStyle: { fontWeight: 'bold', fontSize: 20 }
+           }} />
         <Stack.Screen name="screens/Login" options={{ headerShown: false }} />
         <Stack.Screen name="Logout" options={{ headerShown: false }} />
       </Stack>
